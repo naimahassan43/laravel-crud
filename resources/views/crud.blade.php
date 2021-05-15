@@ -32,13 +32,25 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @php
+                      $i=1;
+                  @endphp
+
+                  @foreach ($students as $student)
+
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                  </tr>
+                    <th scope="row">{{$i++}}</th>
+                    <td>{{$student->name}}</td>
+                    <td>{{$student->roll}}</td>
+                    <td>{{$student->class}}</td>
+                    
+                    <td>
+                      <a href="" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                  </tr> 
+                  @endforeach
+                  
                 </tbody>
               </table>
             </div>
@@ -49,7 +61,7 @@
             <div class="card-header">
               Add New Student
             </div>
-            
+
             @if (session('success'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
               <strong> {{session('success')}} </strong> 
