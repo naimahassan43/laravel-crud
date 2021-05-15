@@ -39,14 +39,19 @@ class StudentController extends Controller
         $request->validate([
             'name' =>'required',
             'roll' =>'required',
-            'year' =>'required',
+            'class' =>'required',
         ],
     [
         'name.required' =>'Please input your name',
         'roll.required' =>'Please input your roll number',
-        'year.required' =>'Please input your year',
+        'class.required' =>'Please input your class',
     ]);
-       
+       Student::insert([
+           'name'=>$request->name,
+           'roll'=>$request->roll,
+           'class'=>$request->class,
+       ]);
+       return redirect()->back()->with('success', 'Added Succesfully');
     }
 
     /**

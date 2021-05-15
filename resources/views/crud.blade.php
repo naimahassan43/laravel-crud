@@ -62,15 +62,15 @@
                 </div>
                 <div class="mb-3">
                   <label for="roll" class="form-label">Roll</label>
-                  <input type="roll" name="roll" class="form-control" id="roll">
+                  <input type="text" name="roll" class="form-control" id="roll">
                   @error('roll')
                   <strong class="text-danger">{{ $message }}</strong>
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="year" class="form-label">Year</label>
-                  <input type="text" name="year" class="form-control" id="year">
-                  @error('year')
+                  <label for="class" class="form-label">Year</label>
+                  <input type="text" name="class" class="form-control" id="class">
+                  @error('class')
                   <strong class="text-danger">{{ $message }}</strong>
                   @enderror
                 </div>
