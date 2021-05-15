@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Student;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Student;
+
 
 class StudentController extends Controller
 {
@@ -35,7 +36,17 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' =>'required',
+            'roll' =>'required',
+            'year' =>'required',
+        ],
+    [
+        'name.required' =>'Please input your name',
+        'roll.required' =>'Please input your roll number',
+        'year.required' =>'Please input your year',
+    ]);
+       
     }
 
     /**

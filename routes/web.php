@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/crud', [StudentController::class,'index']);
+Route::post('/student/store', [StudentController::class,'store']);

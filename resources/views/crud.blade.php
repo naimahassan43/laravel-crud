@@ -51,18 +51,28 @@
             </div>
             <div class="card-body">
               
-              <form>
+              <form action="{{url('student/store')}}" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
-                  <input type="text" name="name" class="form-control" id="name">
+                  <input type="text" name="name" class="form-control @error('name') is invalid @enderror" id="name">
+                  @error('name')
+                  <strong class="text-danger">{{ $message }}</strong>
+                  @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email address</label>
-                  <input type="email" name="email" class="form-control" id="email">
+                  <label for="roll" class="form-label">Roll</label>
+                  <input type="roll" name="roll" class="form-control" id="roll">
+                  @error('roll')
+                  <strong class="text-danger">{{ $message }}</strong>
+                  @enderror
                 </div>
                 <div class="mb-3">
                   <label for="year" class="form-label">Year</label>
                   <input type="text" name="year" class="form-control" id="year">
+                  @error('year')
+                  <strong class="text-danger">{{ $message }}</strong>
+                  @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
