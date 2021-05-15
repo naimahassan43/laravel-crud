@@ -49,13 +49,22 @@
             <div class="card-header">
               Add New Student
             </div>
+            
+            @if (session('success'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong> {{session('success')}} </strong> 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>  
+            @endif
+            
+
             <div class="card-body">
               
               <form action="{{url('student/store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
-                  <input type="text" name="name" class="form-control @error('name') is invalid @enderror" id="name">
+                  <input type="text" name="name" class="form-control" id="name">
                   @error('name')
                   <strong class="text-danger">{{ $message }}</strong>
                   @enderror
