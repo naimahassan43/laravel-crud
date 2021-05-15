@@ -47,19 +47,25 @@
                     
                     <td>
                       <a href="{{url('student/edit/'.$student->id)}}" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="" class="btn btn-sm btn-danger">Delete</a>
+                      <a href="{{url('student/delete/'.$student->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr> 
                   @endforeach
                   
                 </tbody>
               </table>
-              @if (session('update'))
+            @if (session('update'))
               <div class="alert alert-success alert-dismissible fade show" role="alert">
               <strong> {{session('update')}} </strong> 
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>  
             @endif
+            @if (session('delete'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong> {{session('delete')}} </strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>  
+          @endif
             </div>
           </div>
         </div>

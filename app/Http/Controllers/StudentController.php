@@ -101,8 +101,9 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Student $student, $id)
     {
-        //
+        Student::findOrFail($id)->delete();
+        return redirect()->back()->with('delete','Deleted successfully');
     }
 }
