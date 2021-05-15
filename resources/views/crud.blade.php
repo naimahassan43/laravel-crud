@@ -20,6 +20,7 @@
             <div class="card-header">
               All Students
             </div>
+          
             <div class="card-body">
               <table class="table table-bordered table-hover">
                 <thead class="table-secondary">
@@ -45,7 +46,7 @@
                     <td>{{$student->class}}</td>
                     
                     <td>
-                      <a href="" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="{{url('student/edit/'.$student->id)}}" class="btn btn-sm btn-primary">Edit</a>
                       <a href="" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr> 
@@ -53,6 +54,12 @@
                   
                 </tbody>
               </table>
+              @if (session('update'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong> {{session('update')}} </strong> 
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>  
+            @endif
             </div>
           </div>
         </div>

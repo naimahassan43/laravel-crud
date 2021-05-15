@@ -72,9 +72,10 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Student $student,$id)
     {
-        //
+        $student=Student::findOrFail($id);
+        return view('edit', compact('student'));
     }
 
     /**
@@ -84,9 +85,14 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
-        //
+        Student::findOrFail($id)->update([
+            'name'=>$request->name,
+            'roll'=>$request->roll,
+            'class'=>$request->class,
+        ]);
+        return redirect()->to('/crud')->with('update', 'Updated Succesfully');
     }
 
     /**
